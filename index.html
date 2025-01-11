@@ -20,7 +20,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 20px; /* Prevents content from touching edges on smaller screens */
         }
 
         .container {
@@ -29,8 +28,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            width: 100%;
-            max-width: 400px; /* Sets a maximum width for larger screens */
+            width: 300px;
         }
 
         h2 {
@@ -42,18 +40,15 @@
         .content {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap; /* Ensures buttons wrap to the next line on small screens */
             gap: 10px;
         }
 
         button {
-            flex: 1; /* Allows buttons to grow and fill available space */
-            min-width: 100px; /* Prevents buttons from becoming too small */
             background-color: #4a90e2;
             color: #fff;
             border: none;
             border-radius: 5px;
-            padding: 10px;
+            padding: 10px 15px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-size: 1em;
@@ -66,16 +61,6 @@
         button:active {
             transform: scale(0.95);
         }
-
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 1.2em; /* Adjusts heading size for smaller screens */
-            }
-
-            button {
-                font-size: 0.9em; /* Adjusts button text size for smaller screens */
-            }
-        }
     </style>
 </head>
 <body>
@@ -85,24 +70,25 @@
             <button onclick="playAudio('love.aac')">Button 1</button>
             <button onclick="playAudio('miss.aac')">Button 2</button>
             <button onclick="playAudio('proud.aac')">Button 3</button>
+            <button onclick="playAudio('sorry.aac')">Button 4</button>
         </div>
     </div>
 
     <script>
-         let currentAudio = null;
+        let currentAudio = null;
 
-        function playAudio(audioFile) {
-            // If there's already audio playing, stop it
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0; // Reset to the start
-            }
+function playAudio(audioFile) {
+    // If there's already audio playing, stop it
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; // Reset to the start
+    }
 
-            // Create a new audio instance and play it
-            currentAudio = new Audio(audioFile);
-            currentAudio.play();
-        }
-    </script> 
+    // Create a new audio instance and play it
+    currentAudio = new Audio(audioFile);
+    currentAudio.play();
+}
+    </script>
 
 </body>
 </html>

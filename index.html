@@ -20,6 +20,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            padding: 20px; /* Prevents content from touching edges on smaller screens */
         }
 
         .container {
@@ -28,7 +29,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             text-align: center;
-            width: 300px;
+            width: 100%;
+            max-width: 400px; /* Sets a maximum width for larger screens */
         }
 
         h2 {
@@ -40,15 +42,18 @@
         .content {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap; /* Ensures buttons wrap to the next line on small screens */
             gap: 10px;
         }
 
         button {
+            flex: 1; /* Allows buttons to grow and fill available space */
+            min-width: 100px; /* Prevents buttons from becoming too small */
             background-color: #4a90e2;
             color: #fff;
             border: none;
             border-radius: 5px;
-            padding: 10px 15px;
+            padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-size: 1em;
@@ -60,6 +65,16 @@
 
         button:active {
             transform: scale(0.95);
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.2em; /* Adjusts heading size for smaller screens */
+            }
+
+            button {
+                font-size: 0.9em; /* Adjusts button text size for smaller screens */
+            }
         }
     </style>
 </head>

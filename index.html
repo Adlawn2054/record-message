@@ -89,11 +89,20 @@
     </div>
 
     <script>
+         let currentAudio = null;
+
         function playAudio(audioFile) {
-            const audio = new Audio(audioFile);
-            audio.play();
+            // If there's already audio playing, stop it
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; // Reset to the start
+            }
+
+            // Create a new audio instance and play it
+            currentAudio = new Audio(audioFile);
+            currentAudio.play();
         }
-    </script>
+    </script> 
 
 </body>
 </html>
